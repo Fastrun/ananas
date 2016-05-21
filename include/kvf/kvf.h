@@ -227,49 +227,25 @@ typedef struct kv_operations obj_operations_t;
  \note
  */
 typedef struct pool {
-	/*
-	 * unique pool name
-	 */
+	/* unique pool name */
 	char* pool_name;
-
-	/*
-	 * kvf type
-	 */
+	/* kvf type	*/
 	kvf_type_t* kvf;
-
-	/*
-	 *the location info
-	 */
+	/* the location info */
 	pool_location_t* pool_location;
-
-	/*
-	 * space info
-	 */
+	/* space info */
 	u64 pool_physical_capacity, pool_physical_used, pool_physical_free;		//For physical storage statistics.
 	u64 pool_logical_capacity, pool_logical_used, pool_logical_free;		//For logical storage statistics, especially thin feature, logical size maybe larger than physical.
-
-	/*
-	 * redundancy policy
-	 */
+	/* redundancy policy */
 	pool_redundancy_t* pool_availability;
-
-	/*
-	 * pool's sla
-	 */
+	/* pool's sla */
 	u64 pool_latency, pool_throughput;
 	u64 pool_obj_cksum_type, pool_obj_cksum_lengh;
 	u64 pool_obj_compress_type;
-
-	/*
-	 * key-value operations
-	 */
+	/* key-value operations	*/
 	struct kv_operations* kv_ops;
-
-	/*
-	 * pool list link
-	 */
+	/* pool list link */
 	struct list link;
-
 	void* pool_private;
 } pool_t;
 
